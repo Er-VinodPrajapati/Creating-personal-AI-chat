@@ -1,0 +1,65 @@
+Step 1 – Install Ollama (Required)
+Go to ollama.com/download/windows
+
+Download and run the installer.
+
+After installation, Ollama will start automatically (you’ll see its icon in the system tray).
+
+Optional but recommended:
+Open a terminal and pull a model (e.g., llama3.2:3b):
+
+bash
+ollama pull llama3.2:3b
+You can also use mistral, phi3, llama3.1:8b, etc.
+
+If Ollama is running, you’ll see Ollama is running when you open http://localhost:11434 in a browser.
+
+📦 Step 2 – Run the Gyani Baba Installer
+Double‑click GyaniBaba_Setup.exe.
+
+Windows may show a “Windows protected your PC” warning – click “More info” and “Run anyway” (since you built it).
+
+Follow the installer:
+
+Choose installation folder (default: C:\Program Files\Gyani Baba).
+
+Choose Start Menu folder.
+
+Optionally check “Create a desktop shortcut”.
+
+Click Install.
+
+After completion, leave the “Launch Gyani Baba” checkbox checked or run the app manually.
+
+⚙️ Step 3 – First Run
+The first time the app starts:
+
+It creates a config.json file (with default settings) in its installation folder.
+
+It creates a gyani_workspace\ folder and data\ folder (for database).
+
+It tries to connect to Ollama at http://localhost:11434.
+
+If Ollama is running and the model you set in config.json is available, everything works.
+
+🔧 Step 4 – Configure (If Needed)
+The app uses config.json. You can edit it with Notepad to:
+
+Change the LLM endpoint (e.g., to a remote server).
+
+Change the model name.
+
+Set email/calendar credentials (optional).
+
+Default location:
+C:\Program Files\Gyani Baba\config.json
+
+🚀 Step 5 – Run Gyani Baba
+From Start Menu: Start → Gyani Baba → Gyani Baba
+
+From Desktop: double‑click the shortcut.
+
+From installation folder: double‑click GyaniBaba.exe.
+
+The GUI will appear – start chatting!
+
