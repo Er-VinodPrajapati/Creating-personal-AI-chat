@@ -1,0 +1,43 @@
+def load_config():
+    if not os.path.exists(CONFIG_FILE):
+        default = {...}  # your default dict
+        with open(CONFIG_FILE, "w") as f:
+            json.dump(default, f, indent=2)
+        return default
+    try:
+        with open(CONFIG_FILE) as f:
+            return json.load(f)
+    except json.JSONDecodeError:
+        # Corrupt config – back it up and create a new one
+        import shutil
+        backup = CONFIG_FILE + ".corrupt"
+        shutil.copy2(CONFIG_FILE, backup)
+        print(f"Config was corrupt. Backed up to {backup} and created fresh config.")
+        default = {
+            "llm_endpoint": "http://localhost:11434/api/chat",
+            "model": "llama3.2:3b",
+            "max_tokens": 2048,
+            "temperature": 0.7,
+            "system_prompt": "...",
+            "image_api_url": "https://image.pollinations.ai/prompt/",
+            "image_width": 512,
+            "image_height": 512,
+            "email": {
+                "smtp_server": "",
+                "smtp_port": 587,
+                "smtp_username": "",
+                "smtp_password": "",
+                "imap_server": "",
+                "imap_port": 993,
+                "imap_username": "",
+                "imap_password": ""
+            },
+            "calendar": {
+                "caldav_url": "",
+                "username": "",
+                "password": ""
+            }
+        }
+        with open(CONFIG_FILE, "w") as f:
+            json.dump(default, f, indent=2)
+        return default
